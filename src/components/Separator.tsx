@@ -4,9 +4,8 @@ interface Props {
 };
 
 const Separator: FC<Props> = () => {
-  // Vertical separator like hr
   return (
-    <div className="h-1 w-0.5 bg-gray-300 mx-2"></div>
+    <div className="bg-[#CCD1EE] w-full h-0.5 my-6 lg:hidden"></div>
   );
 };
 
