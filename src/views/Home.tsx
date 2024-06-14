@@ -1,6 +1,8 @@
 import Header from "../components/Header";
 import Container from "../components/Container";
 import Hero from "../components/Hero";
+import Separator from "../components/Separator";
+import JoinForm from "../components/JoinForm";
 
 function App() {
   return (
@@ -9,7 +11,8 @@ function App() {
       <main>
         <Container>
           <Hero />
-          <h2 className="text-2xl font-bold text-gray-800">ga</h2>
+          <Separator />
+          <JoinForm />
         </Container>
       </main>
     </>
