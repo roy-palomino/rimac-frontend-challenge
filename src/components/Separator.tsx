@@ -1,11 +1,19 @@
 import { FC } from "react";
 
-interface Props {
-};
+import { classNames } from "../utils/classnames";
 
-const Separator: FC<Props> = () => {
+interface Props {
+  className?: string;
+}
+
+const Separator: FC<Props> = ({ className }) => {
   return (
-    <div className="bg-[#CCD1EE] w-full h-0.5 my-6 lg:hidden opacity-65"></div>
+    <div
+      className={classNames(
+        "w-full h-0.5 my-6 lg:hidden",
+        className || "bg-[#CCD1EE] opacity-65",
+      )}
+    ></div>
   );
 };
 
