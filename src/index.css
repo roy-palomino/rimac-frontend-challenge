@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'BRSonoma';
+  src: url('/fonts/BRSonoma-Regular-BF654c45266c042.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BRSonoma';
+  src: url('/fonts/BRSonoma-Bold-BF654c4526823f5.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BRSonoma';
+  src: url('/fonts/BRSonoma-Italic-BF654c452681c11.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+body {
+  font-family: 'BRSonoma', sans-serif;
+}
