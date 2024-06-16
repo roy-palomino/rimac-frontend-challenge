@@ -20,10 +20,10 @@ const plans = [
 ];
 
 export default function Example() {
-  const [selected, setSelected] = useState(plans[0]);
+  const [selected, setSelected] = useState();
 
   return (
-    <div className="w-full px-4">
+    <div className="w-full">
       <div className="mx-auto w-full max-w-md">
         <RadioGroup
           // @ts-ignore
