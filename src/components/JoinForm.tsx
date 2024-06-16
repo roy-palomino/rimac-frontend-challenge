@@ -53,7 +53,7 @@ const JoinForm: FC<Props> = () => {
         onSubmit={submitForm}
         validationSchema={validationSchema}
       >
-        <Form className="flex flex-col">
+        <Form className="flex flex-col pb-16">
           <div className="my-6">
             <div className="flex flex-row w-full h-14">
               <div className="flex flex-col relative">
@@ -77,7 +77,7 @@ const JoinForm: FC<Props> = () => {
                 <Field
                   name="doc_number"
                   type="text"
-                  className="flex w-full h-14 border-t border-r border-b border-[#5E6488] bg-transparent pl-4 pt-5 items-center justify-center align-middle rounded-r-lg z-10"
+                  className="flex w-full h-14 border-t-[#5E6488] border-r-[#5E6488] border-b-[#5E6488] border-l-0 bg-transparent pl-4 pt-5 items-center justify-center align-middle rounded-r-lg z-10"
                 />
                 <ErrorMessage
                   name="doc_number"
@@ -156,7 +156,10 @@ const JoinForm: FC<Props> = () => {
             </a>
           </div>
           <div>
-            <button type="submit" className="bg-[#03050F] py-[18px] px-10 text-white font-bold w-full rounded-[40px] tracking-[0.6px]">
+            <button
+              type="submit"
+              className="bg-[#03050F] py-4 px-10 text-white font-bold w-full rounded-[40px] tracking-[0.6px]"
+            >
               Cotiza aquí
             </button>
           </div>
