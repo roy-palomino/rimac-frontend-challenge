@@ -3,24 +3,45 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'BRSonoma';
-  src: url('/fonts/BRSonoma-Regular-BF654c45266c042.otf') format('opentype');
+  font-family: "BRSonoma";
+  src: url("/fonts/BRSonoma-Regular-BF654c45266c042.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'BRSonoma';
-  src: url('/fonts/BRSonoma-Bold-BF654c4526823f5.otf') format('opentype');
+  font-family: "BRSonoma";
+  src: url("/fonts/BRSonoma-Bold-BF654c4526823f5.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'BRSonoma';
-  src: url('/fonts/BRSonoma-Italic-BF654c452681c11.otf') format('opentype');
+  font-family: "BRSonoma";
+  src: url("/fonts/BRSonoma-Light-BF654c452608e0f.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BRSonoma";
+  src: url("/fonts/BRSonoma-SemiBold-BF654c45268c340.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BRSonoma";
+  src: url("/fonts/BRSonoma-Italic-BF654c452681c11.otf") format("opentype");
   font-weight: normal;
   font-style: italic;
+}
+
+@font-face {
+  font-family: "BRSonoma";
+  src: url("/fonts/BRSonoma-Black-BF654c4525506bf.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
 }
 
 select {
@@ -35,5 +56,5 @@ select::-ms-expand {
 }
 
 body {
-  font-family: 'BRSonoma', sans-serif;
+  font-family: "BRSonoma", sans-serif;
 }
