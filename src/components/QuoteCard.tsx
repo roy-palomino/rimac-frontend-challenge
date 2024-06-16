@@ -16,11 +16,11 @@ const QuoteCard: FC<Props> = ({ plan }) => {
     <Radio
       key={plan.title}
       value={plan}
-      className="group relative flex cursor-pointer rounded-3xl pt-4 pb-10 px-6 shadow-rimac-shadow focus:outline-none data-[focus]:outline-1 !outline-[#A9AFD9] data-[checked]:bg-white/10"
+      className="group relative flex cursor-pointer rounded-3xl pt-4 pb-10 px-6 shadow-rimac-shadow focus:outline-none data-[focus]:outline-1 !outline-[#141938] data-[checked]:bg-white/10"
     >
       <div className="flex flex-col w-full items-end">
         <div className="size-5 border border-[#A9AFD9] rounded-full relative">
-          <CheckCircleIcon className="size-6 fill-[#141938] opacity-0 transition group-data-[checked]:opacity-100 rounded-full absolute -right-[3px] -bottom-[3px]" />
+          <CheckCircleIcon className="size-6 fill-[#389E0D] opacity-0 transition group-data-[checked]:opacity-100 rounded-full absolute -right-[3px] -bottom-[3px]" />
         </div>
         <div className="w-full">
           <div className="mb-2">
