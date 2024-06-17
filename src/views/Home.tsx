@@ -16,7 +16,7 @@ function App() {
         <TopRightBlow />
         <Container>
           <div className="flex flex-row max-w-[1180px] mx-auto">
-            <div className="hidden w-[480px] h-[560px] overflow-hidden md:block">
+            <div className="hidden w-[480px] h-[560px] overflow-hidden md:block z-30">
               <img
                 src="/images/hero-image.png"
                 alt="Descripción de la imagen"
