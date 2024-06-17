@@ -1,11 +1,11 @@
 import { FC } from "react";
-import { Formik, Form, ErrorMessage, Field } from "formik";
-
-import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { Formik, Form, ErrorMessage, Field } from "formik";
+import * as Yup from "yup";
 
-interface Props {}
+import { useUserStore } from "../store";
 
 interface FormValues {
   doc_type: string;
@@ -37,9 +37,16 @@ const validationSchema = Yup.object().shape({
   ),
 });
 
-const JoinForm: FC<Props> = () => {
-  function submitForm(values: FormValues) {
-    console.log(values);
+const JoinForm: FC = () => {
+
+  const setUserData = useUserStore(state => state.setUserData);
+
+  const navigate = useNavigate();
+
+
+  function saveUserData(values: FormValues) {
+    setUserData(values.doc_number, values.doc_type, values.phone);
+    navigate("/planes")
   }
 
   return (
@@ -50,7 +57,7 @@ const JoinForm: FC<Props> = () => {
       </p>
       <Formik
         initialValues={initialValues}
-        onSubmit={submitForm}
+        onSubmit={saveUserData}
         validationSchema={validationSchema}
       >
         <Form className="flex flex-col pb-16">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState, useEffect } from "react";
 
 import { RadioGroup } from "@headlessui/react";
 
@@ -19,8 +19,18 @@ const plans = [
   },
 ];
 
-export default function Example() {
+interface Props {
+  onSelected: () => void;
+}
+
+const QuoteOptions: FC<Props> = ({ onSelected }) => {
   const [selected, setSelected] = useState();
+
+  useEffect(() => {
+    if (selected) {
+      onSelected();
+    }
+  }, [selected]);
 
   return (
     <div className="w-full">
@@ -32,11 +42,13 @@ export default function Example() {
           onChange={setSelected}
           className="space-y-6"
         >
-          {plans.map((plan) => (
-            <QuoteCard plan={plan} />
+          {plans.map((plan, i) => (
+            <QuoteCard plan={plan} key={i} />
           ))}
         </RadioGroup>
       </div>
     </div>
   );
-}
+};
+
+export default QuoteOptions;

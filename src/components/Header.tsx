@@ -1,14 +1,15 @@
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.svg";
 import { PhoneIcon } from "@heroicons/react/24/solid";
 
-interface Props {}
+const Header: FC = () => {
+  const navigate = useNavigate();
 
-const Header: FC<Props> = () => {
   return (
     <nav className="flex flex-row justify-between w-full h-[56px] px-6 py-3 items-center">
-      <img src={logo}></img>
+      <img onClick={() => navigate("/")} src={logo}></img>
       <div className="flex flex-row items-center">
         <PhoneIcon className="size-4" />
 

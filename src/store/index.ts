@@ -16,6 +16,12 @@ interface SelectedPlan {
   price: number;
   description: string[];
   age: number;
+  setSelectedPlan: (
+    name: string,
+    price: number,
+    description: string[],
+    age: number,
+  ) => void;
 }
 
 export const useUserStore = create<UserData>((set) => ({
@@ -31,7 +37,15 @@ export const useUserStore = create<UserData>((set) => ({
     set(() => ({ name, lastName, birthDay })),
 }));
 
-export const usePlanStore = create((set) => ({
-  selectedPlan: {} as SelectedPlan,
-  setSelectedPlan: (plan: SelectedPlan) => set(() => ({ selectedPlan: plan })),
+export const usePlanStore = create<SelectedPlan>((set) => ({
+  name: "",
+  price: 0,
+  description: [],
+  age: 0,
+  setSelectedPlan: (
+    name: string,
+    price: number,
+    description: string[],
+    age: number,
+  ) => set(() => ({ name, price, description, age })),
 }));
