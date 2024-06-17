@@ -28,7 +28,7 @@ const MobileSteps: FC<Props> = ({ current, total }) => {
   );
 };
 
-const DesktopSteps: FC<Props> = ({ current, total }) => {
+const DesktopSteps: FC<Props> = ({ current }) => {
   const steps = [
     { number: 1, text: "Planes y coberturas" },
     { number: 2, text: "Resumen" },
