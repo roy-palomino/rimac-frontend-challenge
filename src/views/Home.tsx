@@ -9,11 +9,24 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-[#F8F9FF]">
         <Container>
-          <Hero />
-          <Separator />
-          <JoinForm />
+          <div className="flex flex-row max-w-[1180px] mx-auto">
+            <div className="hidden w-[480px] h-[560px] overflow-hidden md:block">
+              <img
+                src="/images/hero-image.png"
+                alt="Descripción de la imagen"
+                className="object-cover object-center w-full h-full transform -scale-x-100 rounded-2xl"
+              />
+            </div>
+            <div className="max-w-[596px] md:flex justify-center w-full">
+              <div className="max-w-[352px] mx-auto">
+                <Hero />
+                <Separator />
+                <JoinForm />
+              </div>
+            </div>
+          </div>
         </Container>
       </main>
       <Footer />

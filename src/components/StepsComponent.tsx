@@ -13,7 +13,7 @@ interface Props {
 const Steps: FC<Props> = ({ current, total }) => {
   const navigate = useNavigate();
   return (
-    <div className="flex space-x-4 px-6 py-4 border-b border-[#D7DBF5] items-center">
+    <div className="flex space-x-4 px-6 py-4 border-b border-[#D7DBF5] bg-[#F8F9FF] items-center">
       <button
         className="flex size-[24px] rounded-full border-2 border-gray-200 justify-center items-center"
         onClick={() => navigate(-1)}
