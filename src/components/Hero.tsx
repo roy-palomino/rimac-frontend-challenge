@@ -12,7 +12,7 @@ const Hero: FC = () => {
         </p>
       </div>
       <img
-        className="col-span-4 transform -scale-x-100 w-full h-full object-cover rounded-2xl md:hidden"
+        className="z-50 col-span-4 transform -scale-x-100 w-full h-full object-cover rounded-2xl md:hidden"
         src="/images/hero-image.png"
         alt=""
       />

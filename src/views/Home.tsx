@@ -5,11 +5,15 @@ import Separator from "../components/Separator";
 import Footer from "../components/Footer";
 import JoinForm from "../components/JoinForm";
 
+import BottomLeftBlow from "../components/BottomLeftBlow";
+import TopRightBlow from "../components/TopRightBlow";
+
 function App() {
   return (
     <>
-      <Header />
-      <main className="bg-[#F8F9FF] min-h-svh">
+      <main className="bg-[#F8F9FF] md:min-h-svh relative overflow-hidden">
+        <Header />
+        <TopRightBlow />
         <Container>
           <div className="flex flex-row max-w-[1180px] mx-auto">
             <div className="hidden w-[480px] h-[560px] overflow-hidden md:block">
@@ -28,6 +32,7 @@ function App() {
             </div>
           </div>
         </Container>
+        <BottomLeftBlow />
       </main>
       <Footer />
     </>

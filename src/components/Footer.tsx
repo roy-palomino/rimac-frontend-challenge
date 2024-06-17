@@ -8,7 +8,7 @@ interface Props {}
 
 const Footer: FC<Props> = () => {
   return (
-    <footer className="bg-[#03050F] py-8">
+    <footer className="bg-[#03050F] py-8 z-30">
       <div className="flex flex-col  items-center md:flex-row md:justify-between max-w-[1180px] mx-auto">
         <img className="w-[138px] h-5" src={logoWhite}></img>
         <Separator className="bg-[#2B304E]" />
