@@ -58,3 +58,13 @@ select::-ms-expand {
 body {
   font-family: "BRSonoma", sans-serif;
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+}

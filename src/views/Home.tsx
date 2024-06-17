@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="bg-[#F8F9FF]">
+      <main className="bg-[#F8F9FF] min-h-svh">
         <Container>
           <div className="flex flex-row max-w-[1180px] mx-auto">
             <div className="hidden w-[480px] h-[560px] overflow-hidden md:block">
