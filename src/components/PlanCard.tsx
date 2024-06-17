@@ -25,7 +25,7 @@ const PlanCard: FC<Props> = ({ plan, isRecommended, onSelected }) => {
 
   return (
     <div
-      className="group relative flex flex-col rounded-3xl pt-10 pb-12 px-8 bg-white shadow-rimac-shadow focus:outline-none data-[focus]:outline-1 !outline-[#A9AFD9] data-[checked]:bg-white/10 min-w-[288px]"
+      className="group relative flex flex-col rounded-3xl pt-10 pb-12 px-8 bg-white shadow-rimac-shadow focus:outline-none data-[focus]:outline-1 !outline-[#A9AFD9] data-[checked]:bg-white/10 min-w-[288px] max-w-[288px]"
     >
       <div className="flex flex-col pb-6 mb-6 border-b border-[#D7DBF5]">
         <div className="mb-2 h-6">
