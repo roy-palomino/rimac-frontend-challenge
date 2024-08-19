@@ -84,7 +84,7 @@ const JoinForm: FC = () => {
                 <Field
                   name="doc_number"
                   type="text"
-                  className="flex w-full h-14 border-t-[#5E6488] border-r-[#5E6488] border-b-[#5E6488] border-l-0 bg-transparent pl-4 pt-5 items-center justify-center align-middle rounded-r-lg z-10"
+                  className="flex w-full h-14 border-t-[#5E6488] border-r-[#5E6488] border-b-[#5E6488] border-l-0 bg-transparent pl-4 pt-5 items-center justify-center align-middle rounded-r-lg z-10 bg-white"
                 />
                 <ErrorMessage
                   name="doc_number"
@@ -104,7 +104,7 @@ const JoinForm: FC = () => {
                 <Field
                   name="phone"
                   type="text"
-                  className="flex w-full h-14 border border-[#5E6488] bg-transparent pl-4 pt-5 items-center justify-center align-middle rounded-lg z-10"
+                  className="flex w-full h-14 border border-[#5E6488] bg-transparent pl-4 pt-5 items-center justify-center align-middle rounded-lg z-10 bg-white"
                 />
                 <ErrorMessage
                   name="phone"
