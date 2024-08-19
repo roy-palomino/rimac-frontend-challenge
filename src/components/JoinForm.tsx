@@ -6,6 +6,7 @@ import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
 
 import { useUserStore } from "../store";
+import { DOCUMENT_TYPES } from "../constants";
 
 interface FormValues {
   doc_type: string;
@@ -16,7 +17,7 @@ interface FormValues {
 }
 
 const initialValues = {
-  doc_type: "DNI",
+  doc_type: DOCUMENT_TYPES[0].value,
   doc_number: "",
   phone: "",
   accept_privacy_terms: false,
@@ -24,7 +25,7 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  doc_type: Yup.string().oneOf(["DNI", "CE"]),
+  doc_type: Yup.string().oneOf(DOCUMENT_TYPES.map((doc) => doc.value)),
   doc_number: Yup.string().required("Campo requerido"),
   phone: Yup.string().required("Campo requerido"),
   accept_privacy_terms: Yup.boolean().oneOf(
@@ -38,15 +39,13 @@ const validationSchema = Yup.object().shape({
 });
 
 const JoinForm: FC = () => {
-
-  const setUserData = useUserStore(state => state.setUserData);
+  const setUserData = useUserStore((state) => state.setUserData);
 
   const navigate = useNavigate();
 
-
   function saveUserData(values: FormValues) {
     setUserData(values.doc_number, values.doc_type, values.phone);
-    navigate("/planes")
+    navigate("/planes");
   }
 
   return (
@@ -69,8 +68,11 @@ const JoinForm: FC = () => {
                   as="select"
                   className="flex w-[140px] h-14 border border-[#5E6488] bg-white p-4 items-center justify-center align-middle rounded-l-lg"
                 >
-                  <option value="DNI">DNI</option>
-                  <option value="CE">Carné de extranjería</option>
+                  {DOCUMENT_TYPES.map((doc) => (
+                    <option key={doc.value} value={doc.value}>
+                      {doc.name}
+                    </option>
+                  ))}
                 </Field>
                 <ChevronDownIcon className="bg-white absolute right-2 size-5 top-4 text" />
               </div>
