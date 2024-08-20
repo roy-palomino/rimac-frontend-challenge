@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Header from "../components/Header";
@@ -9,79 +9,22 @@ import Pagination from "../components/Pagination";
 import LoadingOverlay from "../components/LoadingOverlay";
 import BackButton from "../components/BackButton";
 
-import { getUserAge } from "../utils/getUserAge";
-
 import { useUserStore } from "../store";
-import { getUserData } from "../services/userService";
-import { getPlans } from "../services/planService";
-
-interface Plan {
-  name: string;
-  price: number;
-  description: string[];
-  age: number;
-}
-
-interface User {
-  name: string;
-  lastName: string;
-  birthDay: string;
-}
+import { useFetchPlans, useFetchUser } from "../hooks";
 
 const Planes: FC = () => {
-  const setUser = useUserStore((state) => state.setUser);
-  const [plans, setPlans] = useState<Array<Plan>>([]);
-  const [loading, setLoading] = useState(false);
-  const [quoteOptionSelected, setQuoteOptionSelected] = useState(false);
   const navigate = useNavigate();
+  const [quoteOptionSelected, setQuoteOptionSelected] = useState(false);
 
   const userState = useUserStore((state) => state);
 
-  async function fetchUser() {
-    setLoading(true);
-    try {
-      const userData: User = await getUserData();
-      setUser(userData.name, userData.lastName, userData.birthDay);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
+  const [plans, isFetching] = useFetchPlans();
 
-  async function fetchPlans() {
-    const userAge = getUserAge(userState.birthDay);
-    setLoading(true);
-    try {
-      const results = await getPlans();
-      const validPlans = results.list.filter(
-        (plan: Plan) => plan.age <= userAge,
-      );
-      setPlans(validPlans);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function handlePlanSelected() {
-    navigate("/resumen");
-  }
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  useEffect(() => {
-    if (userState.name) {
-      fetchPlans();
-    }
-  }, [userState]);
+  const userIsFetching = useFetchUser();
 
   return (
     <>
-      {loading && <LoadingOverlay />}
+      {(isFetching || userIsFetching) && <LoadingOverlay />}
       <Header />
       <main>
         <Steps current={1} total={2} />
@@ -111,7 +54,7 @@ const Planes: FC = () => {
                         key={i}
                         plan={plan}
                         isRecommended={i === 0}
-                        onSelected={handlePlanSelected}
+                        onSelected={() => navigate("/resumen")}
                       />
                     ))}
                   </div>
