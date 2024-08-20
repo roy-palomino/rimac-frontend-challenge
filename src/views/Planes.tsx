@@ -46,23 +46,25 @@ const Planes: FC = () => {
               <QuoteOptions onSelected={() => setQuoteOptionSelected(true)} />
             </div>
             {quoteOptionSelected && (
-              <div>
-                {plans.length > 0 && (
-                  <div className="flex flex-row overflow-scroll space-x-8 pt-8 px-12 pb-9 mb-8 justify-center">
-                    {plans.map((plan, i) => (
-                      <PlanCard
-                        key={i}
-                        plan={plan}
-                        isRecommended={i === 0}
-                        onSelected={() => navigate("/resumen")}
-                      />
-                    ))}
-                  </div>
-                )}
+              <>
+                <div className="w-full overflow-x-auto">
+                  {plans.length > 0 && (
+                    <div className="flex flex-row space-x-8 px-8 py-12">
+                      {plans.map((plan, i) => (
+                        <PlanCard
+                          key={i}
+                          plan={plan}
+                          isRecommended={i === 0}
+                          onSelected={() => navigate("/resumen")}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
                 <div className="md:hidden">
                   <Pagination current={1} total={plans.length || 0} />
                 </div>
-              </div>
+              </>
             )}
           </div>
         </div>
