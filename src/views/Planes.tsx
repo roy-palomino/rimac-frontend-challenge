@@ -49,7 +49,7 @@ const Planes: FC = () => {
               <>
                 <div className="w-full overflow-x-auto">
                   {plans.length > 0 && (
-                    <div className="flex flex-row space-x-8 px-8 py-12">
+                    <div className="flex flex-row space-x-8 px-8 py-12 justify-start md:justify-center">
                       {plans.map((plan, i) => (
                         <PlanCard
                           key={i}
