@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Plan } from "../models";
+import { Plan, User } from "../models";
 
 import { getUserAge } from "../utils/getUserAge";
+
+import { getUserData } from "../services/userService";
 import { getPlans } from "../services/planService";
 import { useUserStore } from "../store";
 
@@ -33,4 +35,26 @@ export const useFetchPlans = (): [Plan[], boolean] => {
   }, [userState]);
 
   return [plans, loading];
+};
+
+export const useFetchUser = () => {
+  const setUser = useUserStore((state) => state.setUser);
+  const [isFetching, setIsFetching] = useState(false);
+  useEffect(() => {
+    const fetchUser = async () => {
+      setIsFetching(true);
+      try {
+        const userData: User = await getUserData();
+        setUser(userData.name, userData.lastName, userData.birthDay);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsFetching(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  return isFetching;
 };
